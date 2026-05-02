@@ -4,13 +4,16 @@
   --color-primary: #0052a3;
   --color-primary-light: #0066cc;
   --color-primary-dark: #003d7a;
-  --color-accent: #e8f4fd;
-  --color-accent-dark: #b3d9f2;
-  --color-surface: #f8fafc;
-  --color-text: #1a1a2e;
-  --color-text-muted: #4a5568;
+  --color-accent: #f59e0b;
+  --color-accent-light: #fbbf24;
+  --color-accent-dark: #d97706;
+  --color-surface: #f0f4f8;
+  --color-surface-warm: #fefcf3;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
   --color-border: #e2e8f0;
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-cabinet);
 }
 
 html {
@@ -23,13 +26,81 @@ body {
   background: #ffffff;
 }
 
-/* FAQ accordion */
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
+/* Display font for headings */
+h1, h2, h3 {
+  font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
 }
 
-.faq-answer.open {
-  max-height: 500px;
+/* Button base animation */
+.btn-primary {
+  transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 150ms ease-out;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 82, 163, 0.3);
+}
+.btn-primary:active {
+  transform: scale(0.97) translateY(0);
+  transition-duration: 50ms;
+}
+
+.btn-secondary {
+  transition: transform 150ms ease-out, box-shadow 150ms ease-out, border-color 150ms ease-out;
+}
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+.btn-secondary:active {
+  transform: scale(0.97) translateY(0);
+  transition-duration: 50ms;
+}
+
+.btn-accent {
+  transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 150ms ease-out;
+}
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+}
+.btn-accent:active {
+  transform: scale(0.97) translateY(0);
+  transition-duration: 50ms;
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #0052a3, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Noise texture overlay */
+.noise-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
