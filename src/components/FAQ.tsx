@@ -94,7 +94,7 @@ function FAQItemComponent({ item }: { item: FAQItem }) {
     <div className="border-b border-border last:border-b-0">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between py-4 text-left group"
+        className="w-full flex items-center justify-between py-4 md:py-4 min-h-[48px] text-left group"
       >
         <span className="text-sm font-medium text-text group-hover:text-primary transition-colors pr-4">
           {item.question}
@@ -124,10 +124,10 @@ function FAQItemComponent({ item }: { item: FAQItem }) {
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-20 bg-white">
+    <section id="faq" className="py-14 md:py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
+        <div className="text-center mb-8 md:mb-14">
+          <h2 className="text-2xl md:text-4xl font-bold text-text mb-3 md:mb-4">
             Perguntas Frequentes
           </h2>
           <p className="text-text-muted">

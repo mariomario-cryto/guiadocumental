@@ -33,7 +33,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="como-funciona" className="py-24 bg-surface relative overflow-hidden">
+    <section id="como-funciona" className="py-14 md:py-24 bg-surface relative overflow-hidden">
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-accent/5 rounded-full blur-[100px]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,13 +44,13 @@ export default function Process() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <p className="text-sm font-semibold text-accent uppercase tracking-[0.2em] mb-3">
+          <p className="text-xs md:text-sm font-semibold text-accent uppercase tracking-[0.2em] mb-2 md:mb-3">
             Passo a passo
           </p>
-          <h2 className="text-3xl md:text-5xl font-bold text-text mb-5">
-            Sua jornada do início ao fim
+          <h2 className="text-2xl md:text-5xl font-bold text-text mb-4 md:mb-5">
+            Sua jornada do inicio ao fim
           </h2>
-          <p className="text-text-muted max-w-2xl mx-auto text-lg">
+          <p className="text-text-muted max-w-2xl mx-auto text-base md:text-lg">
             Um processo transparente e sem surpresas
           </p>
         </motion.div>
@@ -72,7 +72,7 @@ export default function Process() {
                 </div>
               )}
 
-              <div className="card-gradient-border card-lift bg-white rounded-2xl p-8 h-full">
+              <div className="card-gradient-border card-lift bg-white rounded-2xl p-5 md:p-8 h-full">
                 <div className="flex items-center gap-4 mb-6">
                   <div
                     className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg`}

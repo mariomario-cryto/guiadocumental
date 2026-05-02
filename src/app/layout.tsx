@@ -47,6 +47,7 @@ export const metadata: Metadata = {
   },
   other: {
     "theme-color": "#0052a3",
+    "viewport": "width=device-width, initial-scale=1, viewport-fit=cover",
   },
 };
 

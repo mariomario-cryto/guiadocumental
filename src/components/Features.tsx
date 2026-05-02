@@ -55,7 +55,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-14 md:py-24 bg-white relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-primary/[0.02] rounded-full blur-[100px]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,18 +66,18 @@ export default function Features() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <p className="text-sm font-semibold text-accent uppercase tracking-[0.2em] mb-3">
+          <p className="text-xs md:text-sm font-semibold text-accent uppercase tracking-[0.2em] mb-2 md:mb-3">
             Nossos diferenciais
           </p>
-          <h2 className="text-3xl md:text-5xl font-bold text-text mb-5">
-            Por que escolher nosso serviço
+          <h2 className="text-2xl md:text-5xl font-bold text-text mb-4 md:mb-5">
+            Por que escolher nosso servico
           </h2>
-          <p className="text-text-muted max-w-2xl mx-auto text-lg">
+          <p className="text-text-muted max-w-2xl mx-auto text-base md:text-lg">
             Especialistas em orientação de documentação com transparência total
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
@@ -85,14 +85,14 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.07 }}
               viewport={{ once: true, margin: "-50px" }}
-              className="card-gradient-border card-lift group p-7 rounded-2xl"
+              className="card-gradient-border card-lift group p-5 md:p-7 rounded-2xl"
             >
               <div
-                className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-5 shadow-lg ${feature.glow} group-hover:scale-110 transition-transform duration-300`}
+                className={`w-11 h-11 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-3 md:mb-5 shadow-lg ${feature.glow}`}
               >
-                <span className="text-2xl">{feature.emoji}</span>
+                <span className="text-lg md:text-2xl">{feature.emoji}</span>
               </div>
-              <h3 className="text-lg font-bold text-text mb-2.5">
+              <h3 className="text-base md:text-lg font-bold text-text mb-1.5 md:mb-2.5">
                 {feature.title}
               </h3>
               <p className="text-sm text-text-muted leading-relaxed">

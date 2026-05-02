@@ -18,14 +18,16 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative pt-24 pb-20 md:pt-36 md:pb-32 bg-gradient-to-br from-[#001229] via-[#001d3d] to-primary-dark overflow-hidden noise-bg"
+      className="relative pt-20 pb-14 md:pt-36 md:pb-32 bg-gradient-to-br from-[#001229] via-[#001d3d] to-primary-dark overflow-hidden"
     >
-      {/* Ambient orbs */}
-      <div className="absolute top-20 right-[10%] w-80 h-80 bg-accent/8 rounded-full blur-[120px]" />
-      <div className="absolute bottom-10 left-[5%] w-96 h-96 bg-sky-500/10 rounded-full blur-[120px]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-light/5 rounded-full blur-[150px]" />
+      {/* Ambient orbs - hidden on mobile for performance */}
+      <div className="hidden md:block">
+        <div className="absolute top-20 right-[10%] w-80 h-80 bg-accent/8 rounded-full blur-[120px]" />
+        <div className="absolute bottom-10 left-[5%] w-96 h-96 bg-sky-500/10 rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-light/5 rounded-full blur-[150px]" />
+      </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
           {/* Content */}
           <motion.div className="lg:col-span-3" style={{ y: contentY }}>
@@ -33,14 +35,14 @@ export default function Hero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-4 py-2 bg-white/8 backdrop-blur-md rounded-full text-white/80 text-sm font-medium mb-8 border border-white/10"
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 md:px-4 md:py-2 bg-white/8 backdrop-blur-md rounded-full text-white/80 text-xs md:text-sm font-medium mb-6 md:mb-8 border border-white/10"
             >
               <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
               Empresa privada de assessoria
             </motion.div>
 
             <motion.h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-white leading-[1.05] tracking-tight mb-7"
+              className="text-[2rem] leading-[1.1] sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-white tracking-tight mb-5 md:mb-7"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
@@ -59,32 +61,32 @@ export default function Hero() {
                 transition={{ delay: 0.25, duration: 0.5 }}
               >
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-amber-300 to-accent">
-                  sem complicação.
+                  sem complicacao.
                 </span>
               </motion.span>
             </motion.h1>
 
             <motion.p
-              className="text-lg md:text-xl text-slate-300/80 mb-10 max-w-xl leading-relaxed"
+              className="text-base md:text-xl text-slate-300/80 mb-8 md:mb-10 max-w-xl leading-relaxed"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
             >
-              Orientação completa para primeira via e renovação.
-              Checklist personalizado, revisão de dados e acompanhamento
+              Orientacao completa para primeira via e renovacao.
+              Checklist personalizado, revisao de dados e acompanhamento
               em cada etapa.
             </motion.p>
 
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 mb-10"
+              className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-10"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.55, duration: 0.5 }}
             >
-              {/* CTA Principal - glow + shimmer */}
+              {/* CTA Principal */}
               <Link
                 href="/assessoria-primeira-guia"
-                className="cta-glow cta-shimmer btn-accent group inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-gradient-to-r from-accent to-amber-500 text-white font-bold rounded-2xl text-base"
+                className="cta-glow cta-shimmer btn-accent group inline-flex items-center justify-center gap-2.5 px-7 py-4 bg-gradient-to-r from-accent to-amber-500 text-white font-bold rounded-2xl text-base"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -99,22 +101,22 @@ export default function Hero() {
 
               <Link
                 href="/assessoria-renovacao"
-                className="btn-secondary inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-white/8 text-white font-semibold rounded-2xl border border-white/15 backdrop-blur-sm text-base hover:bg-white/15"
+                className="btn-secondary inline-flex items-center justify-center gap-2.5 px-7 py-4 bg-white/8 text-white font-semibold rounded-2xl border border-white/15 backdrop-blur-sm text-base hover:bg-white/15"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
                 </svg>
-                Renovação
+                Renovacao
               </Link>
             </motion.div>
 
             <motion.div
-              className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-slate-400"
+              className="flex flex-wrap gap-x-6 gap-y-2 md:gap-x-8 md:gap-y-3 text-sm text-slate-400"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.5 }}
             >
-              {["Diagnóstico gratuito", "Garantia de 7 dias", "Suporte humano"].map((item) => (
+              {["Diagnostico gratuito", "Garantia de 7 dias", "Suporte humano"].map((item) => (
                 <span key={item} className="flex items-center gap-2">
                   <svg className="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M20 6L9 17l-5-5" />
@@ -123,9 +125,30 @@ export default function Hero() {
                 </span>
               ))}
             </motion.div>
+
+            {/* Mobile stats - visible only on mobile */}
+            <motion.div
+              className="mt-8 lg:hidden bg-white/6 backdrop-blur-md rounded-2xl border border-white/10 p-4"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
+            >
+              <div className="grid grid-cols-3 divide-x divide-white/10">
+                {[
+                  { value: "500+", label: "Clientes" },
+                  { value: "24h", label: "Resposta" },
+                  { value: "7 dias", label: "Garantia" },
+                ].map((stat) => (
+                  <div key={stat.label} className="text-center px-2">
+                    <p className="text-lg font-bold text-white">{stat.value}</p>
+                    <p className="text-[11px] text-white/40 mt-0.5 font-medium">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
 
-          {/* Image */}
+          {/* Image - desktop only */}
           <motion.div
             className="hidden lg:flex lg:col-span-2 flex-col items-center gap-5"
             style={{ y: imageY }}
@@ -137,7 +160,7 @@ export default function Hero() {
               <div className="absolute -inset-8 bg-gradient-to-br from-accent/15 via-sky-400/10 to-primary-light/15 rounded-[2rem] blur-3xl" />
               <Image
                 src="/woman-pas.png"
-                alt="Atendimento profissional em documentação de passaporte"
+                alt="Atendimento profissional em documentacao de passaporte"
                 width={400}
                 height={476}
                 className="relative rounded-2xl object-cover shadow-2xl shadow-black/40 ring-1 ring-white/10"
@@ -157,7 +180,7 @@ export default function Hero() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-[11px] text-text-muted font-medium">Satisfação</p>
+                  <p className="text-[11px] text-text-muted font-medium">Satisfacao</p>
                   <p className="text-sm font-bold text-text">98% dos clientes</p>
                 </div>
               </motion.div>
@@ -180,7 +203,7 @@ export default function Hero() {
               </motion.div>
             </div>
 
-            {/* Stats */}
+            {/* Stats - desktop */}
             <div className="w-full bg-white/6 backdrop-blur-md rounded-2xl border border-white/10 p-5">
               <div className="grid grid-cols-3 divide-x divide-white/10">
                 {[

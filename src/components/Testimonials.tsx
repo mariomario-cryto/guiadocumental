@@ -39,7 +39,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-14 md:py-24 bg-white relative overflow-hidden">
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary/[0.02] rounded-full blur-[100px]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,13 +50,13 @@ export default function Testimonials() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <p className="text-sm font-semibold text-accent uppercase tracking-[0.2em] mb-3">
+          <p className="text-xs md:text-sm font-semibold text-accent uppercase tracking-[0.2em] mb-2 md:mb-3">
             Depoimentos
           </p>
-          <h2 className="text-3xl md:text-5xl font-bold text-text mb-5">
+          <h2 className="text-2xl md:text-5xl font-bold text-text mb-4 md:mb-5">
             O que nossos clientes dizem
           </h2>
-          <p className="text-text-muted max-w-2xl mx-auto text-lg">
+          <p className="text-text-muted max-w-2xl mx-auto text-base md:text-lg">
             Avaliações de quem já utilizou nossa assessoria
           </p>
         </motion.div>
@@ -69,7 +69,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="card-gradient-border card-lift bg-white rounded-2xl p-7 relative"
+              className="card-gradient-border card-lift bg-white rounded-2xl p-5 md:p-7 relative"
             >
               {/* Quote mark */}
               <span className="absolute top-5 right-6 text-5xl font-serif text-primary/[0.06] leading-none select-none">

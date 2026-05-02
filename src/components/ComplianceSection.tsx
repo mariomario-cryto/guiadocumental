@@ -43,7 +43,7 @@ const cards = [
 
 export default function ComplianceSection() {
   return (
-    <section className="py-24 bg-surface">
+    <section className="py-14 md:py-24 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -52,13 +52,13 @@ export default function ComplianceSection() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <p className="text-sm font-semibold text-accent uppercase tracking-[0.2em] mb-3">
+          <p className="text-xs md:text-sm font-semibold text-accent uppercase tracking-[0.2em] mb-2 md:mb-3">
             Conformidade
           </p>
-          <h2 className="text-3xl md:text-5xl font-bold text-text mb-5">
-            Informações importantes
+          <h2 className="text-2xl md:text-5xl font-bold text-text mb-4 md:mb-5">
+            Informacoes importantes
           </h2>
-          <p className="text-text-muted max-w-2xl mx-auto text-lg">
+          <p className="text-text-muted max-w-2xl mx-auto text-base md:text-lg">
             Transparência e conformidade em tudo que fazemos
           </p>
         </motion.div>

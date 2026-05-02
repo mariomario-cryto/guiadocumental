@@ -152,7 +152,7 @@ export default function AssessoriaRenovacao() {
             telefone ou e-mail informado para dar início à sua assessoria de
             renovação de passaporte.
           </p>
-          <div className="bg-accent rounded-xl p-4 mb-8 text-sm text-text-muted">
+          <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-8 text-sm text-text-muted">
             <div className="flex items-center gap-2 justify-center">
               <Shield className="w-4 h-4 text-primary" />
               Seus dados estão protegidos conforme a LGPD
@@ -443,7 +443,7 @@ export default function AssessoriaRenovacao() {
 
           {/* LGPD Notice + Submit */}
           <div className="space-y-4">
-            <div className="bg-accent rounded-xl p-4 flex items-start gap-3 text-sm text-text-muted">
+            <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 flex items-start gap-3 text-sm text-text-muted">
               <Shield className="w-5 h-5 text-primary shrink-0 mt-0.5" />
               <p>
                 Ao enviar este formulário, você concorda com nossa{" "}
