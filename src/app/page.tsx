@@ -6,13 +6,16 @@ import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
 import ComplianceSection from "@/components/ComplianceSection";
 import FAQ from "@/components/FAQ";
+import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieBanner from "@/components/CookieBanner";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export default function Home() {
   return (
     <>
+      <ScrollProgress />
       <Header />
       <main>
         <Hero />
@@ -22,6 +25,7 @@ export default function Home() {
         <Testimonials />
         <ComplianceSection />
         <FAQ />
+        <FinalCTA />
       </main>
       <Footer />
       <WhatsAppButton />

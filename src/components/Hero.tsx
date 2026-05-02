@@ -2,116 +2,197 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { FileText, RefreshCw, Shield, CheckCircle } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { useRef } from "react";
 
 export default function Hero() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -30]);
+
   return (
-    <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-primary via-primary-light to-primary-dark overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.04]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-          }}
-        />
-      </div>
+    <section
+      ref={ref}
+      className="relative pt-24 pb-20 md:pt-36 md:pb-32 bg-gradient-to-br from-[#001229] via-[#001d3d] to-primary-dark overflow-hidden noise-bg"
+    >
+      {/* Ambient orbs */}
+      <div className="absolute top-20 right-[10%] w-80 h-80 bg-accent/8 rounded-full blur-[120px]" />
+      <div className="absolute bottom-10 left-[5%] w-96 h-96 bg-sky-500/10 rounded-full blur-[120px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-light/5 rounded-full blur-[150px]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
           {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/15 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-6">
-              <Shield className="w-4 h-4" />
+          <motion.div className="lg:col-span-3" style={{ y: contentY }}>
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2.5 px-4 py-2 bg-white/8 backdrop-blur-md rounded-full text-white/80 text-sm font-medium mb-8 border border-white/10"
+            >
+              <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
               Empresa privada de assessoria
-            </div>
+            </motion.div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Seu passaporte
-              <br />
-              <span className="text-white/80">sem complicação</span>
-            </h1>
+            <motion.h1
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-white leading-[1.05] tracking-tight mb-7"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
+              <motion.span
+                className="block"
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+              >
+                Seu passaporte
+              </motion.span>
+              <motion.span
+                className="block mt-1"
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25, duration: 0.5 }}
+              >
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-amber-300 to-accent">
+                  sem complicação.
+                </span>
+              </motion.span>
+            </motion.h1>
 
-            <p className="text-lg text-white/80 mb-8 max-w-lg leading-relaxed">
-              Assessoria particular e opcional para orientação em documentação.
-              Ajudamos você a entender cada etapa e reunir a documentação
-              correta com segurança e organização.
-            </p>
+            <motion.p
+              className="text-lg md:text-xl text-slate-300/80 mb-10 max-w-xl leading-relaxed"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+            >
+              Orientação completa para primeira via e renovação.
+              Checklist personalizado, revisão de dados e acompanhamento
+              em cada etapa.
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-3 mb-8">
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 mb-10"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55, duration: 0.5 }}
+            >
+              {/* CTA Principal - glow + shimmer */}
               <Link
                 href="/assessoria-primeira-guia"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-primary font-semibold rounded-xl hover:bg-white/90 transition-colors shadow-lg shadow-black/10"
+                className="cta-glow cta-shimmer btn-accent group inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-gradient-to-r from-accent to-amber-500 text-white font-bold rounded-2xl text-base"
               >
-                <FileText className="w-5 h-5" />
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <path d="M14 2v6h6" />
+                  <path d="M16 13H8" />
+                  <path d="M16 17H8" />
+                  <path d="M10 9H8" />
+                </svg>
                 Primeira Via
+                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1.5" />
               </Link>
+
               <Link
                 href="/assessoria-renovacao"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/15 text-white font-semibold rounded-xl hover:bg-white/25 transition-colors border border-white/20"
+                className="btn-secondary inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-white/8 text-white font-semibold rounded-2xl border border-white/15 backdrop-blur-sm text-base hover:bg-white/15"
               >
-                <RefreshCw className="w-5 h-5" />
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
+                </svg>
                 Renovação
               </Link>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle className="w-4 h-4 text-green-300" />
-                Diagnóstico gratuito
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle className="w-4 h-4 text-green-300" />
-                Garantia de 7 dias
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle className="w-4 h-4 text-green-300" />
-                Suporte humano
-              </span>
-            </div>
+            <motion.div
+              className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-slate-400"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.5 }}
+            >
+              {["Diagnóstico gratuito", "Garantia de 7 dias", "Suporte humano"].map((item) => (
+                <span key={item} className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  {item}
+                </span>
+              ))}
+            </motion.div>
           </motion.div>
 
-          {/* Image + Stats */}
+          {/* Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="hidden lg:flex flex-col items-center gap-6"
+            className="hidden lg:flex lg:col-span-2 flex-col items-center gap-5"
+            style={{ y: imageY }}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
           >
             <div className="relative">
-              <div className="absolute -inset-4 bg-white/10 rounded-3xl blur-2xl" />
+              <div className="absolute -inset-8 bg-gradient-to-br from-accent/15 via-sky-400/10 to-primary-light/15 rounded-[2rem] blur-3xl" />
               <Image
                 src="/woman-pas.png"
                 alt="Atendimento profissional em documentação de passaporte"
-                width={420}
-                height={500}
-                className="relative rounded-2xl object-cover shadow-2xl"
+                width={400}
+                height={476}
+                className="relative rounded-2xl object-cover shadow-2xl shadow-black/40 ring-1 ring-white/10"
                 priority
               />
+
+              {/* Floating badge */}
+              <motion.div
+                className="absolute -bottom-5 -left-5 bg-white rounded-2xl px-5 py-3.5 shadow-2xl flex items-center gap-3"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1, type: "spring", stiffness: 200 }}
+              >
+                <div className="w-11 h-11 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/30">
+                  <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-[11px] text-text-muted font-medium">Satisfação</p>
+                  <p className="text-sm font-bold text-text">98% dos clientes</p>
+                </div>
+              </motion.div>
+
+              {/* Top right badge */}
+              <motion.div
+                className="absolute -top-3 -right-3 bg-white rounded-xl px-3 py-2 shadow-xl"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.2, type: "spring", stiffness: 200 }}
+              >
+                <div className="flex items-center gap-1.5">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-3.5 h-3.5 text-accent fill-accent" viewBox="0 0 24 24">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  ))}
+                  <span className="text-xs font-bold text-text ml-1">4.8</span>
+                </div>
+              </motion.div>
             </div>
 
-            {/* Stats bar below image */}
-            <div className="w-full bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-4">
-              <div className="grid grid-cols-3 divide-x divide-white/15">
-                <div className="text-center px-3">
-                  <p className="text-xl font-bold text-white">500+</p>
-                  <p className="text-xs text-white/60 mt-0.5">Clientes</p>
-                </div>
-                <div className="text-center px-3">
-                  <p className="text-xl font-bold text-white">4.8</p>
-                  <p className="text-xs text-white/60 mt-0.5">Avaliação</p>
-                </div>
-                <div className="text-center px-3">
-                  <p className="text-xl font-bold text-white">98%</p>
-                  <p className="text-xs text-white/60 mt-0.5">Satisfação</p>
-                </div>
+            {/* Stats */}
+            <div className="w-full bg-white/6 backdrop-blur-md rounded-2xl border border-white/10 p-5">
+              <div className="grid grid-cols-3 divide-x divide-white/10">
+                {[
+                  { value: "500+", label: "Clientes" },
+                  { value: "24h", label: "Resposta" },
+                  { value: "7 dias", label: "Garantia" },
+                ].map((stat) => (
+                  <div key={stat.label} className="text-center px-3">
+                    <p className="text-xl font-bold text-white">{stat.value}</p>
+                    <p className="text-[11px] text-white/40 mt-0.5 font-medium">{stat.label}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>
