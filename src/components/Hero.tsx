@@ -61,7 +61,7 @@ export default function Hero() {
                 transition={{ delay: 0.25, duration: 0.5 }}
               >
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-amber-300 to-accent">
-                  sem complicacao.
+                  sem complicação.
                 </span>
               </motion.span>
             </motion.h1>

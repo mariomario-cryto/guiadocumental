@@ -131,8 +131,7 @@ export default function Footer() {
             </div>
 
             <p className="text-slate-600">
-              Empresa privada de consultoria. Não somos vinculados a órgãos
-              governamentais e não emitimos documentos oficiais.
+              Assessoria particular especializada em orientação documental.
             </p>
 
             <p className="text-slate-600">

@@ -55,7 +55,7 @@ export default function FinalCTA() {
           </div>
 
           <p className="text-xs text-white/30">
-            Empresa privada de assessoria &middot; Servico opcional &middot; Garantia de 7 dias
+            Atendimento prioritário &middot; Acompanhamento individual &middot; Garantia de 7 dias
           </p>
         </motion.div>
       </div>
