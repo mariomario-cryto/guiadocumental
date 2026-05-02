@@ -1,40 +1,40 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageSquare, ClipboardList, Eye, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const steps = [
   {
     number: "01",
-    icon: MessageSquare,
+    emoji: "💬",
     title: "Diagnóstico Rápido",
     description:
       "Entendemos sua necessidade e confirmamos prazos e documentos exigidos antes de qualquer pagamento.",
-    color: "from-blue-500 to-cyan-500",
+    gradient: "from-blue-500 to-cyan-400",
   },
   {
     number: "02",
-    icon: ClipboardList,
+    emoji: "📋",
     title: "Documentos e Formulários",
     description:
       "Montamos um checklist personalizado, revisamos dados e orientamos o envio aos canais oficiais.",
-    color: "from-indigo-500 to-violet-500",
+    gradient: "from-violet-500 to-indigo-400",
   },
   {
     number: "03",
-    icon: Eye,
-    title: "Protocolo e Acompanhamento",
+    emoji: "🎉",
+    title: "Protocolo e Conclusão",
     description:
       "Acompanhamos protocolos, prazos e eventuais ajustes até a conclusão do serviço contratado.",
-    color: "from-emerald-500 to-teal-500",
+    gradient: "from-emerald-500 to-teal-400",
   },
 ];
 
 export default function Process() {
   return (
     <section id="como-funciona" className="py-24 bg-surface relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-accent/5 rounded-full blur-[100px]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -44,7 +44,7 @@ export default function Process() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-3">
+          <p className="text-sm font-semibold text-accent uppercase tracking-[0.2em] mb-3">
             Passo a passo
           </p>
           <h2 className="text-3xl md:text-5xl font-bold text-text mb-5">
@@ -55,7 +55,7 @@ export default function Process() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-14">
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
@@ -65,21 +65,25 @@ export default function Process() {
               viewport={{ once: true }}
               className="relative"
             >
-              {/* Connector arrow - desktop */}
+              {/* Connector - desktop */}
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-10 -right-4 z-10">
-                  <ArrowRight className="w-5 h-5 text-border" />
+                <div className="hidden md:flex absolute top-12 -right-3 z-10 w-6 h-6 items-center justify-center">
+                  <ArrowRight className="w-4 h-4 text-border" />
                 </div>
               )}
 
-              <div className="bg-white rounded-2xl p-8 border border-border h-full card-hover">
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center mb-6 shadow-lg`}>
-                  <step.icon className="w-6 h-6 text-white" />
+              <div className="card-gradient-border card-lift bg-white rounded-2xl p-8 h-full">
+                <div className="flex items-center gap-4 mb-6">
+                  <div
+                    className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg`}
+                  >
+                    <span className="text-2xl">{step.emoji}</span>
+                  </div>
+                  <span className="text-4xl font-bold text-text/5">
+                    {step.number}
+                  </span>
                 </div>
-                <span className="text-xs font-bold text-text-muted/40 uppercase tracking-widest">
-                  Etapa {step.number}
-                </span>
-                <h3 className="text-xl font-bold text-text mt-2 mb-3">
+                <h3 className="text-xl font-bold text-text mb-3">
                   {step.title}
                 </h3>
                 <p className="text-sm text-text-muted leading-relaxed">
@@ -100,10 +104,10 @@ export default function Process() {
         >
           <Link
             href="/assessoria-primeira-guia"
-            className="btn-primary inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-semibold rounded-xl text-base"
+            className="cta-shimmer btn-primary group inline-flex items-center gap-2.5 px-8 py-4 bg-primary text-white font-bold rounded-2xl text-base"
           >
             Começar agora
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
           </Link>
         </motion.div>
       </div>
