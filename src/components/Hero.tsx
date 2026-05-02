@@ -126,22 +126,29 @@ export default function Hero() {
               ))}
             </motion.div>
 
-            {/* Mobile stats - visible only on mobile */}
+            {/* Mobile: image + stats */}
             <motion.div
-              className="mt-8 lg:hidden bg-white/6 backdrop-blur-md rounded-2xl border border-white/10 p-4"
+              className="mt-8 lg:hidden flex items-center gap-4 bg-white/6 backdrop-blur-md rounded-2xl border border-white/10 p-3"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
             >
-              <div className="grid grid-cols-3 divide-x divide-white/10">
+              <Image
+                src="/woman-pas.png"
+                alt="Atendimento profissional"
+                width={72}
+                height={86}
+                className="rounded-xl object-cover w-[72px] h-[86px] shrink-0 ring-1 ring-white/10"
+              />
+              <div className="grid grid-cols-3 divide-x divide-white/10 flex-1">
                 {[
                   { value: "500+", label: "Clientes" },
                   { value: "24h", label: "Resposta" },
                   { value: "7 dias", label: "Garantia" },
                 ].map((stat) => (
-                  <div key={stat.label} className="text-center px-2">
-                    <p className="text-lg font-bold text-white">{stat.value}</p>
-                    <p className="text-[11px] text-white/40 mt-0.5 font-medium">{stat.label}</p>
+                  <div key={stat.label} className="text-center px-1.5">
+                    <p className="text-base font-bold text-white">{stat.value}</p>
+                    <p className="text-[10px] text-white/40 mt-0.5 font-medium">{stat.label}</p>
                   </div>
                 ))}
               </div>
