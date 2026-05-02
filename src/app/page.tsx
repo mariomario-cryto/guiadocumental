@@ -8,7 +8,6 @@ import ComplianceSection from "@/components/ComplianceSection";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieBanner from "@/components/CookieBanner";
 import ScrollProgress from "@/components/ScrollProgress";
 
@@ -28,7 +27,6 @@ export default function Home() {
         <FinalCTA />
       </main>
       <Footer />
-      <WhatsAppButton />
       <CookieBanner />
     </>
   );
