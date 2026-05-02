@@ -1,17 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Mail,
-  Phone,
-  Clock,
-  MapPin,
   Shield,
   CheckCircle,
+  FileText,
+  RefreshCw,
 } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer id="contato" className="bg-slate-900 text-white">
+    <footer className="bg-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
@@ -40,53 +38,33 @@ export default function Footer() {
               <li>
                 <Link
                   href="/assessoria-primeira-guia"
-                  className="text-sm text-slate-400 hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors"
                 >
+                  <FileText className="w-4 h-4" />
                   Primeira Via
                 </Link>
               </li>
               <li>
                 <Link
                   href="/assessoria-renovacao"
-                  className="text-sm text-slate-400 hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors"
                 >
+                  <RefreshCw className="w-4 h-4" />
                   Renovação
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/acompanhar-pedido"
-                  className="text-sm text-slate-400 hover:text-white transition-colors"
-                >
-                  Acompanhar Pedido
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Como funciona */}
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-300 mb-4">
-              Contato
+              Como funciona
             </h4>
-            <ul className="space-y-2.5">
-              <li className="flex items-center gap-2 text-sm text-slate-400">
-                <Mail className="w-4 h-4" />
-                contato@guiadocumental.org
-              </li>
-              <li className="flex items-center gap-2 text-sm text-slate-400">
-                <Phone className="w-4 h-4" />
-                (31) 3779-3600
-              </li>
-              <li className="flex items-center gap-2 text-sm text-slate-400">
-                <Clock className="w-4 h-4" />
-                Seg-Sex 9h-18h, Sáb 9h-14h
-              </li>
-              <li className="flex items-center gap-2 text-sm text-slate-400">
-                <MapPin className="w-4 h-4" />
-                Atendimento Nacional
-              </li>
-            </ul>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              Preencha um de nossos guias com suas informações e nossa equipe
+              entrará em contato para dar início à sua assessoria.
+            </p>
           </div>
 
           {/* Trust */}

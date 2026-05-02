@@ -60,8 +60,7 @@ export default function RootLayout({
               description:
                 "Consultoria privada especializada em orientação para obtenção de passaporte brasileiro",
               url: "https://www.guiadocumental.org",
-              telephone: "+55-31-3779-3600",
-              email: "contato@guiadocumental.org",
+              contactType: "assessoria",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Rua Hanuch Salum, 22 - Jardim Laura",

@@ -7,7 +7,6 @@ import Testimonials from "@/components/Testimonials";
 import ComplianceSection from "@/components/ComplianceSection";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieBanner from "@/components/CookieBanner";
 
 export default function Home() {
@@ -24,7 +23,6 @@ export default function Home() {
         <FAQ />
       </main>
       <Footer />
-      <WhatsAppButton />
       <CookieBanner />
     </>
   );

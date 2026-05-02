@@ -17,7 +17,7 @@ const navLinks = [
   { href: "/", label: "Início" },
   { href: "#como-funciona", label: "Como Funciona" },
   { href: "#faq", label: "Dúvidas" },
-  { href: "#contato", label: "Contato" },
+  { href: "#como-comecar", label: "Começar" },
 ];
 
 const guias = [
